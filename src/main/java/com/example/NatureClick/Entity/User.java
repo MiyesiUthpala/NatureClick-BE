@@ -3,6 +3,8 @@ package com.example.NatureClick.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -12,6 +14,9 @@ public class User {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int userid;
 
+    @Column(name = "full_name", length = 150)
+    private String fullName;
+
     @Column(name = "user_name", length = 255)
     private String username;
 
@@ -20,6 +25,19 @@ public class User {
 
     @Column (name = "password", length = 255)
     private String password;
+
+    @Column (name = "mobile", length = 12)
+    private String mobile;
+
+    @Column (name = "phone", length = 12)
+    private String phone;
+
+    @Column (name = "work", length = 100)
+    private String work;
+
+    @Column (name = "dob")
+    private Date dob;
+
 
     public User(int userid, String username, String email, String password) {
         this.userid = userid;
@@ -62,6 +80,46 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
+    public void setWork(String work) {
+        this.work = work;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     @Override
