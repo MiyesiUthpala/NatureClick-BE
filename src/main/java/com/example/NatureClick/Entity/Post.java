@@ -1,6 +1,7 @@
 package com.example.NatureClick.Entity;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
@@ -10,8 +11,7 @@ public class Post {
     @Id
     @Column (name = "id" , length = 255)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
+    private int id;
 
     @Column(name = "title", length = 255)
     private String title;
@@ -19,30 +19,55 @@ public class Post {
     @Column(name = "description", length = 255)
     private String description;
 
+    @Column(name = "category", length = 50)
+    private String category;
+
     @Column(name = "image_url", length = 255)
     private String imageUrl;
     @Column(name = "time")
     private LocalDateTime time;
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    @Column(name = "base_64", columnDefinition = "MEDIUMTEXT")
-    private String imageBase64;
+    @Transient
+    private boolean isLiked;
 
+    private String type;
 
     public Post() {
     }
 
-    public Post(String title, String description, String imageUrl, LocalDateTime time) {
+    public Post(String title, String description, String imageUrl, LocalDateTime time, User user) {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
         this.time = time;
+        this.user = user;
     }
 
-    public Long getId() {
+    public boolean isLiked() {
+        return isLiked;
+    }
+
+    public void setLiked(boolean liked) {
+        isLiked = liked;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -78,11 +103,19 @@ public class Post {
         this.time = time;
     }
 
-    public String getImageBase64() {
-        return imageBase64;
+    public String getType() {
+        return type;
     }
 
-    public void setImageBase64(String imageBase64) {
-        this.imageBase64 = imageBase64;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

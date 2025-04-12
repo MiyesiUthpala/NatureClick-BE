@@ -4,10 +4,12 @@ public class LoginResponse {
 
     String message;
     Boolean status;
+    int userId;
 
-    public LoginResponse(String message, Boolean status) {
+    public LoginResponse(String message, Boolean status, int userId) {
         this.message = message;
         this.status = status;
+        this.userId = userId;
     }
 
     public LoginResponse() {
@@ -27,6 +29,14 @@ public class LoginResponse {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override

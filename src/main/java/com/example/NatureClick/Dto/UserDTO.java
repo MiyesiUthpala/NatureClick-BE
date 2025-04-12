@@ -7,16 +7,47 @@ public class UserDTO {
     private String username;
     private String email;
     private String password;
+    private String work;
+
+    private String fullName;
+
+    private String phone;
+
+    private String profilePic;
+
+    private boolean update;
+
+    private String address;
+
+    private String bio;
 
 
-    public UserDTO(int userid, String username, String email, String password) {
-        this.userid = userid;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
 
     public UserDTO() {
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public boolean isUpdate() {
+        return update;
+    }
+
+    public void setUpdate(boolean update) {
+        this.update = update;
     }
 
     public int getUserid() {
@@ -51,6 +82,38 @@ public class UserDTO {
         this.password = password;
     }
 
+    public String getWork() {
+        return work;
+    }
+
+    public void setWork(String work) {
+        this.work = work;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
@@ -58,6 +121,10 @@ public class UserDTO {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", work='" + work + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", profilePic='" + profilePic + '\'' +
                 '}';
     }
 }

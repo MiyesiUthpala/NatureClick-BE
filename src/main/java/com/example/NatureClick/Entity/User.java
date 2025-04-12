@@ -38,12 +38,45 @@ public class User {
     @Column (name = "dob")
     private Date dob;
 
+    @Column (name = "profile_pic", length = 255)
+    private String profilePic;
 
-    public User(int userid, String username, String email, String password) {
+    @Column (name = "address")
+    private String address;
+
+    @Column (name = "bio")
+    private String bio;
+
+
+    public User(int userid, String username, String email, String password, String work, String phone) {
         this.userid = userid;
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public User() {
